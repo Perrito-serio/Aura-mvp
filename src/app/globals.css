@@ -1,4 +1,13 @@
+/* src/app/globals.css (VERSIÓN COMPLETA Y SEGURA) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
   --background: #ffffff;
@@ -23,4 +32,32 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- INICIO: CÓDIGO DE ANIMACIONES AÑADIDO --- */
+/* (Este es el único bloque que estamos añadiendo) */
+
+/* Animaciones personalizadas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0; /* Asegura que el elemento sea invisible antes de la animación */
+}
+
+/* Retrasos para las animaciones secuenciales */
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+.animation-delay-600 {
+  animation-delay: 0.6s;
 }
