@@ -1,10 +1,9 @@
-// scripts/seed-garments.ts
+// scripts/seed-garments.ts (ACTUALIZADO CON 18 PRENDAS)
 import { drizzle } from 'drizzle-orm/libsql';
 import { createClient } from '@libsql/client';
-import { garments } from '../src/drizzle/schema';
+import { garments } from '../src/drizzle/schema'; // Ajusta la ruta si es necesario
 import * as dotenv from 'dotenv';
 
-// Cargar las variables de entorno desde .env.local
 dotenv.config({ path: '.env.local' });
 
 async function main() {
@@ -18,18 +17,38 @@ async function main() {
   console.log('Limpiando la tabla de prendas...');
   await db.delete(garments);
 
+  // Lista completa con las 18 prendas
   const initialGarments = [
-    { name: 'Blue Shirt', imageUrl: '/garments/shirt-1.png', category: 'shirt' },
-    { name: 'Summer Dress', imageUrl: '/garments/dress-1.png', category: 'dress' },
-    { name: 'Leather Jacket', imageUrl: '/garments/jacket-1.png', category: 'jacket' },
+    // Shirts (Camisetas/Playeras)
+    { name: 'Shirt 1', imageUrl: '/garments/shirts/shirt-1.png', category: 'shirts' },
+    { name: 'Shirt 2', imageUrl: '/garments/shirts/shirt-2.png', category: 'shirts' },
+    { name: 'Shirt 3', imageUrl: '/garments/shirts/shirt-3.png', category: 'shirts' },
+    { name: 'Shirt 4', imageUrl: '/garments/shirts/shirt-4.png', category: 'shirts' },
+    { name: 'Shirt 5', imageUrl: '/garments/shirts/shirt-5.png', category: 'shirts' },
+    { name: 'Shirt 6', imageUrl: '/garments/shirts/shirt-6.png', category: 'shirts' },
+
+    // Dresses (Vestidos)
+    { name: 'Dress 1', imageUrl: '/garments/dresses/dress-1.png', category: 'dresses' },
+    { name: 'Dress 2', imageUrl: '/garments/dresses/dress-2.png', category: 'dresses' },
+    { name: 'Dress 3', imageUrl: '/garments/dresses/dress-3.png', category: 'dresses' },
+    { name: 'Dress 4', imageUrl: '/garments/dresses/dress-4.png', category: 'dresses' },
+    { name: 'Dress 5', imageUrl: '/garments/dresses/dress-5.png', category: 'dresses' },
+    { name: 'Dress 6', imageUrl: '/garments/dresses/dress-6.png', category: 'dresses' },
+
+    // Jackets (Chaquetas)
+    { name: 'Jacket 1', imageUrl: '/garments/jackets/jacket-1.png', category: 'jackets' },
+    { name: 'Jacket 2', imageUrl: '/garments/jackets/jacket-2.png', category: 'jackets' },
+    { name: 'Jacket 3', imageUrl: '/garments/jackets/jacket-3.png', category: 'jackets' },
+    { name: 'Jacket 4', imageUrl: '/garments/jackets/jacket-4.png', category: 'jackets' },
+    { name: 'Jacket 5', imageUrl: '/garments/jackets/jacket-5.png', category: 'jackets' },
+    { name: 'Jacket 6', imageUrl: '/garments/jackets/jacket-6.png', category: 'jackets' },
   ];
 
-  console.log('Insertando prendas iniciales en la base de datos...');
+  console.log('Insertando 18 prendas iniciales en la base de datos...');
   await db.insert(garments).values(initialGarments);
-  
+
   console.log('¡Seed completado con éxito!');
-  // Forzamos la salida del proceso para que la terminal no se quede colgada
-  process.exit(0);
+  process.exit(0); // Forzar salida para evitar que la terminal se quede colgada
 }
 
 main().catch((err) => {

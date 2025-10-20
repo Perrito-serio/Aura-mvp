@@ -12,9 +12,13 @@
     "db:seed": "tsx scripts/seed-garments.ts"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "^1.11.0",
     "@libsql/client": "^0.15.15",
+    "@types/bcrypt": "^6.0.0",
+    "bcrypt": "^6.0.0",
     "drizzle-orm": "^0.44.6",
     "next": "15.5.4",
+    "next-auth": "^4.24.11",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
